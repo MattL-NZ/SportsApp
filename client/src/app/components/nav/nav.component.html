@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-md fixed-top navbar-dark" style="background-color: #1e3d59;">
+    <div class="container">
+        <div class="d-flex flex-row">
+            <a class="navbar-brand" href="#" style="color: #ffc13b;">Sports App</a>
+            <ul *ngIf="accountService.currentUser$ | async" class="navbar-nav me-auto mb-2 mb-md-0" >
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Matches</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Lists</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Messages</a>
+                </li>
+            </ul>
+        </div>
+
+        <div *ngIf="accountService.currentUser$ | async">
+            <div class="col">
+                <div ngbDropdown class="d-inline-block">
+                    <button class="btn" id="dropdownBasic1" ngbDropdownToggle style="color: #ffc13b;">Welcome User</button>
+                    <div ngbDropdownMenu>
+                        <button ngbDropdownItem>Edit profile</button>
+                        <div class="dropdown-divider"></div>
+                        <button (click)="logout()" ngbDropdownItem>Logout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <form *ngIf="!(accountService.currentUser$ | async)" #loginForm="ngForm" class="d-flex" (ngSubmit)="login()" autocomplete="off">
+            <input name="username" [(ngModel)]="model.username" class="form-control me-2" type="search" placeholder="Username">
+            <input name="password" [(ngModel)]="model.password" class="form-control me-2 ml-2" type="password" placeholder="Password">
+            <button class="btn btn-outline-success ml-2 my-sm-0" type="submit">Login</button>
+        </form>
+    </div>
+</nav>

@@ -1,0 +1,17 @@
+<div class="container mt-5">
+    <div *ngIf="!registerMode" class="text-center">
+        <h1>Find your team</h1>
+        <p class="lead">Come on in to view your teams matches. All you need to do is sign up!</p>
+        <div class="text-center">
+            <button (click)="registerToggle()" class="btn btn-primary btn-lg mr-2 border-0" style="background-color: #1e3d59; color: #ffc13b;">Register</button>
+            <button class="btn btn-info btn-lg border-0" style="background-color: #ffc13b; color: #1e3d59;">Learn more</button>
+        </div>
+    </div>
+    <div *ngIf="registerMode" class="container">
+        <div class="row justify-content-center">
+            <div class="col-4">
+                <app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>
+            </div>
+        </div>
+    </div>
+</div>
