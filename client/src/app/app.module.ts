@@ -14,6 +14,7 @@ import { MemberDetailComponent } from './components/members/member-detail/member
 import { ListsComponent } from './components/lists/lists.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { ToastrModule } from 'ngx-toastr';
+import { SharedModule } from './modules/shared.module';
 
 @NgModule({
   declarations: [
@@ -31,9 +32,7 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule, // Needed to make HTTP calls to an API
-    NgbModule,
-    FormsModule,
-    ToastrModule.forRoot({positionClass: "toast-bottom-right"})  
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

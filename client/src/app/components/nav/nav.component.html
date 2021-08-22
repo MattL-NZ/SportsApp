@@ -1,24 +1,24 @@
-<nav class="navbar navbar-expand-md fixed-top navbar-dark" style="background-color: #1e3d59;">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
         <div class="d-flex flex-row">
-            <a class="navbar-brand" routerLink="/" routerLinkActive="active" style="color: #ffc13b;">Sports App</a>
+            <a class="fw-bold fs-4 navbar-brand text-primary" routerLink="/" routerLinkActive="active">Sports App</a>
             <ul *ngIf="accountService.currentUser$ | async" class="navbar-nav me-auto mb-2 mb-md-0" >
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="/members" routerLinkActive="active">Matches</a>
+                    <a class="nav-link fs-5" routerLink="/members" routerLinkActive="active">Matches</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="/lists" routerLinkActive="active">Lists</a>
+                    <a class="nav-link fs-5" routerLink="/lists" routerLinkActive="active">Lists</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="/messages" routerLinkActive="active">Messages</a>
+                    <a class="nav-link fs-5" routerLink="/messages" routerLinkActive="active">Messages</a>
                 </li>
             </ul>
         </div>
 
-        <div *ngIf="accountService.currentUser$ | async">
+        <div *ngIf="(accountService.currentUser$ | async) as user">
             <div class="col">
                 <div ngbDropdown class="d-inline-block">
-                    <button class="btn" id="dropdownBasic1" ngbDropdownToggle style="color: #ffc13b;">Welcome User</button>
+                    <button class="btn" id="dropdownBasic1" ngbDropdownToggle>Welcome {{user.username | titlecase}}</button>
                     <div ngbDropdownMenu>
                         <button ngbDropdownItem>Edit profile</button>
                         <div class="dropdown-divider"></div>
@@ -30,7 +30,7 @@
 
         <form *ngIf="!(accountService.currentUser$ | async)" #loginForm="ngForm" class="d-flex" (ngSubmit)="login()" autocomplete="off">
             <input name="username" [(ngModel)]="model.username" class="form-control me-2" type="search" placeholder="Username">
-            <input name="password" [(ngModel)]="model.password" class="form-control me-2 ml-2" type="password" placeholder="Password">
+            <input name="password" [(ngModel)]="model.password" class="form-control me-2" type="password" placeholder="Password">
             <button class="btn btn-outline-success ml-2 my-sm-0" type="submit">Login</button>
         </form>
     </div>
