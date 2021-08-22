@@ -10,7 +10,7 @@ import { AccountService } from 'src/app/services/account.service';
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.css']
 })
-export class NavComponent implements OnInit {
+export class NavComponent implements OnInit {a
   user: User;
   model: any = {}
   openDropdown: boolean = false;
