@@ -8,8 +8,13 @@
     <div class="form-group">
         <input type="password" class="form-control mt-2" name="password" [(ngModel)]="model.password" placeholder="Password"> 
     </div>
+<<<<<<< HEAD
     <div class="form-group text-center mt-2">
         <button [disabled]="!model.username || !model.password" class="btn btn-outline-success me-2" type="submit">Register</button>
+=======
+    <div class="form-group text-center">
+        <button [disabled]="!model.username || !model.password" class="btn mr-2" style="background-color: #1e3d59; color: #ffc13b;" type="submit">Register</button>
+>>>>>>> main
         <button class="btn btn-secondary mr-2" (click)="cancel()" type="button">Cancel</button>
     </div>
 </form>
